@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>{{ pool.name }}</h1>
+    <small>{{ pool.description }}</small>
+    <hr>
+    <p>LB Method: {{ pool.loadBalancingMode }}</p>
+    <p>Monitors: {{ pool.monitor }}</p>
+    <h3>Members</h3>
+    <hr>
+    {% for member in members %}
+    <p>{{ member.name }}</p>
+    {% endfor %}
+{#    <div>#}
+{#        {{ pool.lb_method }}#}
+{#    </div>#}
+
+{% endblock %}

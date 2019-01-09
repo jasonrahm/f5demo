@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Pools</h1>
+    <ul class="list-group">
+    {% for pool in pools %}
+        <li class="list-group-item"><a href="pools/{{ pool.name }}">{{ pool.name }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
