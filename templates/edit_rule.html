@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Editing: /{{ form.rule_partition.data }}/{{ form.rule_name.data }}</h1>
+    <small>(Hostname: {{ host }})</small>
+    <hr>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+        <div class="form-group">
+            {{ form.rule_name(type="hidden") }}
+            {{ form.rule_partition(type="hidden") }}
+            {{ render_field(form.rule_body, class_="form-control" | safe) }}
+        </div>
+        <div>
+            <input type="submit" class="btn btn-dark btn-lg" value="Update Rule">
+            <a href="/rules" class="btn btn-dark btn-lg">Back to Rules</a>
+        </div>
+    </form>
+    <div>
+
+    </div>
+
+{% endblock %}

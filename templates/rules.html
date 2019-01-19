@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Rules</h1>
+    <small>(Hostname: {{ host }})</small>
+    <hr>
+    <a class="btn btn-dark btn-lg" href="/add_rule">Add Rule</a>
+    <p></p>
+    <ul class="list-group list-group-flush">
+    {% for rule in rules %}
+        <li class="list-group-item">{{ loop.index }}. <a href="edit_rule/{{ rule.partition }}~{{ rule.name }}">/{{ rule.partition }}/{{ rule.name }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

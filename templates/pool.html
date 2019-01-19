@@ -2,7 +2,7 @@
 
 {% block body %}
     <h1>{{ pool.name }}</h1>
-    <small>{{ pool.description }}</small>
+    <small>(Hostname: {{ host }})</small>
     <hr>
     <p>LB Method: {{ pool.loadBalancingMode }}</p>
     <p>Monitors: {{ pool.monitor }}</p>
@@ -11,8 +11,8 @@
     {% for member in members %}
     <p>{{ member.name }}</p>
     {% endfor %}
-{#    <div>#}
-{#        {{ pool.lb_method }}#}
-{#    </div>#}
+    <div>
+        <a href="/pools" class="btn btn-dark btn-lg">Back to Pools</a>
+    </div>
 
 {% endblock %}

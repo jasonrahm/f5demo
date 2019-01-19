@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Add Rule</h1>
+    <small>(Hostname: {{ host }})</small>
+    <hr>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+        <div class="form-group">
+            {{ render_field(form.rule_name, class_="form-control btn-dark btn-lg") }}
+            {{ render_field(form.rule_partition, class_="form-control btn-dark btn-lg") }}
+            {{ render_field(form.rule_body, class_="form-control" | safe) }}
+        </div>
+        <div>
+            <input type="submit" class="btn btn-dark btn-lg" value="Create Rule">
+            <a href="/rules" class="btn btn-dark btn-lg">Back to Rules</a>
+        </div>
+    </form>
+
+
+{% endblock %}
