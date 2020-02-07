@@ -1,0 +1,39 @@
+{
+    "listeners": {
+        "*:5000": {
+            "pass": "routes"
+        }
+    },
+    "routes": [
+        {
+            "match": {
+                "uri": [
+                    "/css/*.css",
+                    "/img/*.gif",
+                    "*.ico",
+                    "/img/*.jp?eg",
+                    "/js/*.js",
+                    "/img/*.png",
+                    "/img/*.svg"
+                ]
+            },
+            "action": {
+                "share": "/home/f5demo/app/static/"
+            }
+        },
+        {
+            "action": {
+                "pass": "applications/f5demo"
+            }
+        }
+    ],
+    "applications": {
+        "f5demo": {
+            "type": "python 3",
+            "path": "/home/f5demo/app/",
+            "module": "app",
+            "processes": 2
+        }
+    },
+    "access_log": "log/unit.log"
+}

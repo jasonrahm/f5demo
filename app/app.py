@@ -9,10 +9,12 @@ requests.packages.urllib3.disable_warnings()
 # Obviously this should be done differently, with app login and users passing f5 credentials, but this is a demo
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 app.config.from_object(Configuration)
 codemirror = CodeMirror(app)
 
+# necessary reference for nginx unit
+application = app
 
 @app.route('/')
 def home():
